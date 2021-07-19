@@ -1,0 +1,32 @@
+module.exports = {
+    verbose: true,
+    preset: 'ts-jest',
+    testEnvironment: 'node',
+    clearMocks: true,
+    moduleNameMapper: {
+      '@tarojs/components': '@tarojs/components/dist-h5/react',
+      '@tarojs/shared': '@tarojs/shared/dist/index.js',
+      // '@tarojs/taro': '@tarojs/taro/h5.js',
+      '^.+\\.(css|scss|less)$': '<rootDir>/test/style-mock.js'
+    },
+    transform: {
+      '^.+\\.(ts|tsx)?$': 'ts-jest',
+      "^.+\\.(js|jsx)$": "babel-jest",
+    },
+    rootDir: __dirname,
+    moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx', 'json'],
+    transformIgnorePatterns: ['^.+\\.(css|sass|scss|less)$'],
+    testPathIgnorePatterns: [
+      'node_modules',
+      'utils'
+    ],
+    globals: {
+      "ts-jest": {
+        tsConfig: {
+          // allow js in typescript
+          allowJs: true,
+        },
+      },
+    }
+  };
+  
